@@ -4,10 +4,12 @@
 2. 一系列STL的类型，都会在这个项目中使用，并且会有相应的示例代码。
 3. 每一个示例代码都会分成一个独立的文件，并且会有相应的注释。
 
+
 ## 编译必要
 
 1. 必须要有CMake，可以去[CMake](https://cmake.org/download/)官网里面下载最新的版本即可。
-2. Windows平台上建议需要安装VisualStudio，版本倒是无所谓，2010都行，具体可以去[Visual Studio](https://visualstudio.microsoft.com/)里面下载即可。
+2. 在Windows平台上建议需要安装VisualStudio，版本倒是无所谓，2010都行，具体可以去[Visual Studio](https://visualstudio.microsoft.com/)里面下载即可。
+
 
 ## 概述
 
@@ -19,6 +21,7 @@
 2. 在命令行里面 `cd build`；
 3. 直接 `cmake ..` 即可，注意这种情况一定要将build放在项目文件夹内，不然需要自己寻找CMakeLists.txt的位置；
 4. 打开生成的SLN，编译，自己运行每个example的项目即可。
+
 
 ## 个人格言
 
