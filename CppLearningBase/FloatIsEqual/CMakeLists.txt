@@ -1,10 +1,10 @@
 #[================================================================[.rst:
-    Copyright (c)2021, Tom Zhao personal. ("UsingSTLEx")
+    Copyright (c)2022, Tom Zhao personal. ("UsingSTLEx")
     This software is a personal tools project by Tom Zhao.
     Description:
 #]================================================================]
 
-set(TZ_MAIN_NAME UsingLambda)
+set(TZ_MAIN_NAME FloatIsEqual)
 
 set(TZ_MAIN_INCLUDE
 

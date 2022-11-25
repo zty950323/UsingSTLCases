@@ -87,6 +87,5 @@ int main(int argc, char* argv[]) {
   TzVectorSwapCase01();
   TzVectorSwapCase02();
   TzVectorSwapCase03();
-  system("pause");
   return 0;
 }

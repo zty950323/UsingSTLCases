@@ -72,10 +72,90 @@ void TzVectorStoreDataCase03() {
   std::cout << '\n';
 }
 
+class TestA {
+ public:
+  enum class Type { kNone = 0, kUseful = 1, kOther = 2 };
+  explicit TestA(const Type& type = Type::kNone)
+      : m_type(type), m_pInt(new int) {
+    cout << "Construct Test A." << endl;
+    *m_pInt = 20;
+    cout << *m_pInt << endl;
+  }
+  ~TestA(void) { cout << "Destory Test A." << endl; }
+
+  TestA(const TestA& other) = delete;
+  TestA& operator=(const TestA& other) = delete;
+
+ protected:
+  const Type m_type;
+  int* m_pInt = nullptr;
+};
+
+class TestB : public TestA {
+ public:
+  explicit TestB(const Type& type = Type::kNone) : TestA(type) {
+    cout << "Construct Test B." << endl;
+    if (m_pInt) {
+      delete m_pInt;
+      m_pInt = nullptr;
+      m_pInt = new int;
+      *m_pInt = 10;
+      cout << *m_pInt << endl;
+    }
+  }
+  ~TestB(void) { cout << "Destory Test B." << endl; }
+
+  TestB(const TestB& other) = delete;
+  TestB& operator=(const TestB& other) = delete;
+
+  int value(void) const { return m_value; }
+  void setValue(int value) { m_value = value; }
+
+ private:
+  int m_value = 0;
+};
+
+void TzTestClassInitCase01() {
+  cout << "Class Test Start:" << endl;
+  TestB tb(TestA::Type::kOther);
+  cout << "Class Test End!" << endl;
+}
+
+template <typename T>
+class TestClassOut {
+ public:
+  class TestClassInner {
+   public:
+    T m_testData;
+  };
+
+  explicit TestClassOut() : m_inner(new TestClassInner) {
+    cout << m_inner->m_testData << endl;
+  }
+
+  void setTestClassInnerPointer(TestClassInner* pInner) { m_inner = pInner; }
+
+  TestClassInner* m_inner = nullptr;
+};
+
+void TzTestT() {
+  TestClassOut<int> a;
+  TestClassOut<int>::TestClassInner inner;
+  inner.m_testData = 10;
+  a.setTestClassInnerPointer(&inner);
+  cout << a.m_inner->m_testData << endl;
+  TestClassOut<double> b;
+  TestClassOut<double>::TestClassInner bInner;
+  bInner.m_testData = 20.222;
+  b.setTestClassInnerPointer(&bInner);
+  cout << b.m_inner->m_testData << endl;
+}
+
 int main(int argc, char* argv[]) {
   TzVectorStoreDataCase01();
   TzVectorStoreDataCase02();
   TzVectorStoreDataCase03();
-  system("pause");
+  TzTestClassInitCase01();
+  TzTestT();
   return 0;
 }

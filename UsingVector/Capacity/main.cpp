@@ -5,12 +5,16 @@
 // Description:
 ///////////////////////////////////////////////////////////////////////////////////////////
 
+#include <algorithm>
 #include <iostream>
 #include <vector>
 
 using std::cout;
 using std::endl;
 using std::vector;
+#if _HAS_CXX20
+using std::ranges::for_each;
+#endif
 
 void printVector(const vector<int>& v) {
   for (vector<int>::const_iterator it = v.begin(); it != v.end(); it++) {
@@ -113,15 +117,15 @@ void TzVectorCapacityCase02() {
   // will not be resized in the future.
   std::vector<int> c = {1, 2, 3};
   std::cout << "The vector holds: ";
-  for (auto& el : c) std::cout << el << ' ';
+  for (auto const& el : c) std::cout << el << ' ';
   std::cout << '\n';
   c.resize(5);
   std::cout << "After resize up to 5: ";
-  for (auto& el : c) std::cout << el << ' ';
+  for (auto const& el : c) std::cout << el << ' ';
   std::cout << '\n';
   c.resize(2);
   std::cout << "After resize down to 2: ";
-  for (auto& el : c) std::cout << el << ' ';
+  for (auto const& el : c) std::cout << el << ' ';
   std::cout << '\n';
 }
 

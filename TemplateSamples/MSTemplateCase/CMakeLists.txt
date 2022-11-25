@@ -4,7 +4,7 @@
     Description:
 #]================================================================]
 
-set(TZ_MAIN_NAME UsingLambda)
+set(TZ_MAIN_NAME MSTemplateCase)
 
 set(TZ_MAIN_INCLUDE
 
@@ -24,4 +24,4 @@ add_executable(${TZ_MAIN_NAME}
 	${TZ_MAIN_SRC}
 )
 
-set_property(TARGET ${TZ_MAIN_NAME} PROPERTY FOLDER "CppLearningBase")
+set_property(TARGET ${TZ_MAIN_NAME} PROPERTY FOLDER "TemplateSamples")
