@@ -10,11 +10,43 @@ set(TZ_MAIN_INCLUDE
 
 )
 
-set(TZ_MAIN_INC
+set(CI_DIR inc/Creator)
+set(SI_DIR inc/Subjects)
 
+set(TZ_CREATOR_INC
+	${CI_DIR}/fd_subject_creator.h
+)
+
+set(TZ_SUBJECTS_INC
+	${SI_DIR}/fd_subject_base.h
+	${SI_DIR}/fd_chinese_subject.h
+	${SI_DIR}/fd_math_subject.h
+	${SI_DIR}/fd_english_subject.h
+)
+
+set(TZ_MAIN_INC
+	${TZ_CREATOR_INC}
+	${TZ_SUBJECTS_INC}
+	inc/fd_subject_client.h
+)
+
+set(CC_DIR src/Creator)
+set(SC_DIR src/Subjects)
+
+set(TZ_CREATOR_SRC
+	${CC_DIR}/fd_subject_creator.cpp
+)
+
+set(TZ_SUBJECTS_SRC
+	${SC_DIR}/fd_subject_base.cpp
+	${SC_DIR}/fd_chinese_subject.cpp
+	${SC_DIR}/fd_math_subject.cpp
+	${SC_DIR}/fd_english_subject.cpp
 )
 
 set(TZ_MAIN_SRC
+	${TZ_CREATOR_SRC}
+	${TZ_SUBJECTS_SRC}
 	main.cpp
 )
 
