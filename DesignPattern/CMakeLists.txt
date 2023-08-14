@@ -5,5 +5,5 @@
 #]================================================================]
 
 add_subdirectory(CreationalPatterns)
-#add_subdirectory(StructuralPatterns)
-#add_subdirectory(BehavioralPatterns)
+add_subdirectory(StructuralPatterns)
+add_subdirectory(BehavioralPatterns)

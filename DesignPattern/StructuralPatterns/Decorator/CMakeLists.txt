@@ -4,7 +4,7 @@
     Description:
 #]================================================================]
 
-set(TZ_MAIN_NAME DecoratorExample)
+set(TZ_MAIN_NAME DecoratorPatternExample)
 
 set(TZ_MAIN_INCLUDE
 
