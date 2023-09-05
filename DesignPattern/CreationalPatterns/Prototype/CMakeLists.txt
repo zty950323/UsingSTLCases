@@ -44,4 +44,4 @@ add_executable(${TZ_MAIN_NAME}
     ${TZ_MAIN_SRC}
 )
 
-set_property(TARGET ${TZ_MAIN_NAME} PROPERTY FOLDER "CreationalPatterns")
+set_property(TARGET ${TZ_MAIN_NAME} PROPERTY FOLDER "DesignPattern/CreationalPatterns")

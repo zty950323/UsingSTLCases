@@ -26,4 +26,4 @@ add_executable(${TZ_MAIN_NAME}
 
 target_include_directories(${TZ_MAIN_NAME} PUBLIC ${TZ_SDK_INCLUDE_DIR})
 
-set_property(TARGET ${TZ_MAIN_NAME} PROPERTY FOLDER "UsingPtr")
+set_property(TARGET ${TZ_MAIN_NAME} PROPERTY FOLDER "STL/UsingPtr")

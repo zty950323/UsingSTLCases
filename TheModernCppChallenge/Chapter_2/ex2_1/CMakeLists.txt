@@ -15,13 +15,13 @@ set(TZ_MAIN_INC
 )
 
 set(TZ_MAIN_SRC
-	main.cpp
+    main.cpp
 )
 
 add_executable(${TZ_MAIN_NAME}
-	${TZ_MAIN_INCLUDE}
-	${TZ_MAIN_INC}
-	${TZ_MAIN_SRC}
+    ${TZ_MAIN_INCLUDE}
+    ${TZ_MAIN_INC}
+    ${TZ_MAIN_SRC}
 )
 
-set_property(TARGET ${TZ_MAIN_NAME} PROPERTY FOLDER "Chapter_2")
+set_property(TARGET ${TZ_MAIN_NAME} PROPERTY FOLDER "TheModernCppChallenge/Chapter_2")

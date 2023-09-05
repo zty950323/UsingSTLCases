@@ -12,23 +12,30 @@ using std::cout;
 using std::endl;
 using std::list;
 
-void printList(const list<int>& v) {
-  for (list<int>::const_iterator it = v.begin(); it != v.end(); it++) {
+void printList(const list<int> &v)
+{
+  for (list<int>::const_iterator it = v.begin(); it != v.end(); it++)
+  {
     cout << *it << " ";
   }
   cout << endl;
 }
 
 // using capacity.
-void TzListCapacityCase01() {
+void TzListCapacityCase01()
+{
   list<int> v1;
-  for (int i = 0; i < 10; i++) {
+  for (int i = 0; i < 10; i++)
+  {
     v1.push_back(i);
   }
   printList(v1);
-  if (v1.empty()) {
+  if (v1.empty())
+  {
     cout << "v1 is null" << endl;
-  } else {
+  }
+  else
+  {
     cout << "v1 is not null" << endl;
     cout << "v1's max_size = " << v1.max_size() << endl;
     cout << "v1's size = " << v1.size() << endl;
@@ -47,7 +54,8 @@ void TzListCapacityCase01() {
 }
 
 // other use ways.
-void TzListCapacityCase02() {
+void TzListCapacityCase02()
+{
   // using empty()
   // empty() returns true if the list is empty, otherwise false.
   std::cout << std::boolalpha;
@@ -81,9 +89,11 @@ void TzListCapacityCase02() {
   auto cap = v1.max_size();
   std::cout << "initial capacity=" << cap << '\n';
 
-  for (int n = 0; n < sz; ++n) {
+  for (int n = 0; n < sz; ++n)
+  {
     v1.push_back(n);
-    if (cap != v1.max_size()) {
+    if (cap != v1.max_size())
+    {
       cap = v1.max_size();
       std::cout << "new max_size=" << cap << '\n';
     }
@@ -106,7 +116,8 @@ void TzListCapacityCase02() {
   std::cout << "Capacity after resize(50) is " << v.max_size() << '\n';
   v.clear();
   std::cout << "Capacity after clear() is " << v.max_size() << '\n';
-  for (int i = 1000; i < 1300; ++i) v.push_back(i);
+  for (int i = 1000; i < 1300; ++i)
+    v.push_back(i);
   std::cout << "Capacity after adding 300 elements is " << v.max_size() << '\n';
 
   // using resize()
@@ -116,21 +127,193 @@ void TzListCapacityCase02() {
   // not be resized in the future.
   std::list<int> c = {1, 2, 3};
   std::cout << "The list holds: ";
-  for (auto& el : c) std::cout << el << ' ';
+  for (auto &el : c)
+    std::cout << el << ' ';
   std::cout << '\n';
   c.resize(5);
   std::cout << "After resize up to 5: ";
-  for (auto& el : c) std::cout << el << ' ';
+  for (auto &el : c)
+    std::cout << el << ' ';
   std::cout << '\n';
   c.resize(2);
   std::cout << "After resize down to 2: ";
-  for (auto& el : c) std::cout << el << ' ';
+  for (auto &el : c)
+    std::cout << el << ' ';
   std::cout << '\n';
 }
 
-int main() {
+// Using capacity.
+void TzListCapacityCase03()
+{
+  list<int> v1;
+  for (int i = 0; i < 10; i++)
+  {
+    v1.push_back(i);
+  }
+  printList(v1);
+  if (v1.empty())
+  {
+    cout << "v1 is null" << endl;
+  }
+  else
+  {
+    cout << "v1 is not null" << endl;
+    cout << "v1's max_size = " << v1.max_size() << endl;
+    cout << "v1's size = " << v1.size() << endl;
+  }
+
+  // Resize with fill.
+  v1.resize(15, 10);
+  printList(v1);
+
+  // Resize with fill.
+  v1.resize(5, 20);
+  printList(v1);
+}
+
+// Using empty().
+void TzListCapacityCase04()
+{
+  std::list<int> numbers;
+  std::cout << "Initially, numbers.empty(): " << numbers.empty() << '\n';
+
+  numbers.push_back(42);
+  std::cout << "After adding elements, numbers.empty(): " << numbers.empty()
+            << '\n';
+}
+
+// Using size().
+void TzListCapacityCase05()
+{
+  std::list<int> nums{1, 3, 5, 7};
+  std::cout << "nums contains " << nums.size() << " elements.\n";
+}
+
+// Using max_size().
+void TzListCapacityCase06()
+{
+  std::list<char> s;
+  std::cout << "Maximum size of a 'list' is " << s.max_size() << "\n";
+
+  s.push_back('a');
+  std::cout << "After adding one element, max_size is " << s.max_size() << "\n";
+
+  s.resize(100);
+  std::cout << "After resizing to 100, max_size is " << s.max_size() << "\n";
+
+  s.push_back('b');
+  std::cout << "After adding another element, max_size is " << s.max_size() << "\n";
+}
+
+// Using shrink_to_fit().
+void TzListCapacityCase07()
+{
+  std::list<int> v;
+  std::cout << "Default-constructed max_size is " << v.max_size() << '\n';
+  v.resize(100);
+  std::cout << "Capacity after resize(100) is " << v.max_size() << '\n';
+  v.resize(50);
+  std::cout << "Capacity after resize(50) is " << v.max_size() << '\n';
+  v.clear();
+  std::cout << "Capacity after clear() is " << v.max_size() << '\n';
+  for (int i = 1000; i < 1300; ++i)
+    v.push_back(i);
+  std::cout << "Capacity after adding 300 elements is " << v.max_size() << '\n';
+}
+
+// Using capacity.
+void TzListCapacityCase08()
+{
+  list<int> v1;
+  for (int i = 0; i < 10; i++)
+  {
+    v1.push_back(i);
+  }
+  printList(v1);
+  if (v1.empty())
+  {
+    cout << "v1 is null" << endl;
+  }
+  else
+  {
+    cout << "v1 is not null" << endl;
+    cout << "v1's max_size = " << v1.max_size() << endl;
+    cout << "v1's size = " << v1.size() << endl;
+  }
+
+  // Resize with fill.
+  v1.resize(15, 10);
+  printList(v1);
+
+  // Resize with fill.
+  v1.resize(5, 20);
+  printList(v1);
+}
+
+// Using empty().
+void TzListCapacityCase09()
+{
+  std::list<int> numbers;
+  std::cout << "Initially, numbers.empty(): " << numbers.empty() << '\n';
+
+  numbers.push_back(42);
+  std::cout << "After adding elements, numbers.empty(): " << numbers.empty()
+            << '\n';
+}
+
+// Using size().
+void TzListCapacityCase10()
+{
+  std::list<int> nums{1, 3, 5, 7};
+  std::cout << "nums contains " << nums.size() << " elements.\n";
+}
+
+// Using max_size().
+void TzListCapacityCase11()
+{
+  std::list<char> s;
+  std::cout << "Maximum size of a 'list' is " << s.max_size() << "\n";
+
+  s.push_back('a');
+  std::cout << "After adding one element, max_size is " << s.max_size() << "\n";
+
+  s.resize(100);
+  std::cout << "After resizing to 100, max_size is " << s.max_size() << "\n";
+
+  s.push_back('b');
+  std::cout << "After adding another element, max_size is " << s.max_size() << "\n";
+}
+
+// Using shrink_to_fit().
+void TzListCapacityCase12()
+{
+  std::list<int> v;
+  std::cout << "Default-constructed max_size is " << v.max_size() << '\n';
+  v.resize(100);
+  std::cout << "Capacity after resize(100) is " << v.max_size() << '\n';
+  v.resize(50);
+  std::cout << "Capacity after resize(50) is " << v.max_size() << '\n';
+  v.clear();
+  std::cout << "Capacity after clear() is " << v.max_size() << '\n';
+  for (int i = 1000; i < 1300; ++i)
+    v.push_back(i);
+  std::cout << "Capacity after adding 300 elements is " << v.max_size() << '\n';
+}
+
+int main()
+{
   TzListCapacityCase01();
   TzListCapacityCase02();
+  TzListCapacityCase03();
+  TzListCapacityCase04();
+  TzListCapacityCase05();
+  TzListCapacityCase06();
+  TzListCapacityCase07();
+  TzListCapacityCase08();
+  TzListCapacityCase09();
+  TzListCapacityCase10();
+  TzListCapacityCase11();
+  TzListCapacityCase12();
   system("pause");
   return 0;
 }

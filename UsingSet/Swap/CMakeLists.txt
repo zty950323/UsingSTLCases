@@ -24,4 +24,4 @@ add_executable(${TZ_MAIN_NAME}
 	${TZ_MAIN_SRC}
 )
 
-set_property(TARGET ${TZ_MAIN_NAME} PROPERTY FOLDER "UsingSet")
+set_property(TARGET ${TZ_MAIN_NAME} PROPERTY FOLDER "STL/UsingSet")
