@@ -12,29 +12,29 @@ set(TZ_USING_STL_INCLUDE
     include
 )
 
-SET(TZ_ROOT_DIR ${CMAKE_SOURCE_DIR})
-SET(TZ_SDK_INCLUDE_DIR ${TZ_ROOT_DIR}/include)
+set(TZ_ROOT_DIR ${CMAKE_SOURCE_DIR})
+set(TZ_SDK_INCLUDE_DIR ${TZ_ROOT_DIR}/include)
+set(TZ_THIRD_PARTY_DIR ${TZ_ROOT_DIR}/ThirdParty)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 project(${TZ_USING_STL_NAME})
 
-add_definitions(
-    -wd4819
-)
+if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
+    add_definitions(
+        -wd4819
+    )
 
-add_compile_options(
-    /std:c++latest
-)
+    add_compile_options(
+        /std:c++latest
+    )
+endif()
 
-add_subdirectory(UsingString)
-add_subdirectory(UsingVector)
-add_subdirectory(UsingDeque)
-add_subdirectory(UsingStack)
-add_subdirectory(UsingQueue)
-add_subdirectory(UsingLists)
-add_subdirectory(UsingSet)
-add_subdirectory(UsingPtr)
+enable_testing()
+add_subdirectory(${TZ_THIRD_PARTY_DIR}/googletest)
+include_directories(${TZ_THIRD_PARTY_DIR}/googletest/googletest/include)
+
+add_subdirectory(STLCoding)
 add_subdirectory(CppLearningBase)
 add_subdirectory(TheModernCppChallenge)
 add_subdirectory(TemplateSamples)
